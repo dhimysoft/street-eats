@@ -8,7 +8,7 @@ const foods = [
     category: 'Savory',
     priceRange: '$',
     spiceLevel: 'Medium',
-    image: 'https://placehold.co/600x400/c1440e/ffffff?text=Tacos+al+Pastor',
+    image: '/images/tacos-al-pastor.svg',
     description: 'Marinated pork shaved off a vertical spit, served on small corn tortillas with pineapple, onion, and cilantro.',
     whereToTry: 'Late-night taquerías across Mexico City'
   },
@@ -21,7 +21,7 @@ const foods = [
     category: 'Noodles',
     priceRange: '$',
     spiceLevel: 'Mild',
-    image: 'https://placehold.co/600x400/e8a33d/ffffff?text=Pad+Thai',
+    image: '/images/pad-thai.svg',
     description: 'Stir-fried rice noodles tossed with tamarind, egg, tofu or shrimp, bean sprouts, and crushed peanuts.',
     whereToTry: 'Street stalls along Khao San Road'
   },
@@ -34,7 +34,7 @@ const foods = [
     category: 'Sandwich',
     priceRange: '$',
     spiceLevel: 'Mild',
-    image: 'https://placehold.co/600x400/7a9e3b/ffffff?text=Banh+Mi',
+    image: '/images/banh-mi.svg',
     description: 'A crispy baguette stuffed with grilled meat, pâté, pickled carrots and daikon, cucumber, and fresh herbs.',
     whereToTry: 'Sidewalk carts in District 1'
   },
@@ -47,7 +47,7 @@ const foods = [
     category: 'Savory',
     priceRange: '$',
     spiceLevel: 'None',
-    image: 'https://placehold.co/600x400/f2c14e/222222?text=Arepas',
+    image: '/images/arepas.svg',
     description: 'Griddled cornmeal cakes split open and filled with cheese, shredded beef, black beans, or avocado chicken salad.',
     whereToTry: 'Areperas that stay open around the clock'
   },
@@ -60,7 +60,7 @@ const foods = [
     category: 'Snack',
     priceRange: '$',
     spiceLevel: 'None',
-    image: 'https://placehold.co/600x400/8b4513/ffffff?text=Takoyaki',
+    image: '/images/takoyaki.svg',
     description: 'Crispy-outside, gooey-inside batter balls filled with octopus, topped with sauce, mayo, and bonito flakes.',
     whereToTry: 'The Dotonbori food street'
   },
@@ -73,7 +73,7 @@ const foods = [
     category: 'Savory',
     priceRange: '$',
     spiceLevel: 'Hot',
-    image: 'https://placehold.co/600x400/5c2e1f/ffffff?text=Griot',
+    image: '/images/griot.svg',
     description: 'Citrus-marinated pork, simmered then fried until crisp, served with pikliz and fried plantains.',
     whereToTry: 'Street vendors and fritay stands'
   },
@@ -86,7 +86,7 @@ const foods = [
     category: 'Sweet',
     priceRange: '$',
     spiceLevel: 'None',
-    image: 'https://placehold.co/600x400/d4a373/222222?text=Churros',
+    image: '/images/churros.svg',
     description: 'Fried ridged dough sticks dusted with sugar and dunked in thick hot chocolate.',
     whereToTry: 'Chocolaterías near Puerta del Sol'
   },
@@ -99,7 +99,7 @@ const foods = [
     category: 'Savory',
     priceRange: '$',
     spiceLevel: 'Hot',
-    image: 'https://placehold.co/600x400/c9a227/222222?text=Doubles',
+    image: '/images/doubles.svg',
     description: 'Two soft fried flatbreads (bara) filled with curried chickpeas and topped with tamarind and pepper sauce.',
     whereToTry: 'Morning doubles stands across the island'
   }

@@ -4,7 +4,7 @@ Submitted by: **Dhimy Jean**
 
 About this web app: **Street Eats is a listicle of iconic street foods from around the world. The home page shows each dish as a card with its city, country, category, price, and spice level. Clicking a dish opens its own page (for example `/foods/griot`) with every detail, including where to try it. The app is built with vanilla HTML, CSS, and JavaScript, served by an Express server, and styled with Picocss.**
 
-Time spent: **X** hours
+Time spent: **4** hours
 
 ## Required Features
 
@@ -16,7 +16,7 @@ The following **required** functionality is completed:
 - [x] **The web app displays at least five unique list items, each with at least three displayed attributes (such as title, text, and image)**
 - [x] **The user can click on each item in the list to see a detailed view of it, including all database fields**
   - [x] **Each detail view should be a unique endpoint, such as as `localhost:3000/bosses/crystalguardian` and `localhost:3000/mantislords`**
-  - [ ] *Note: When showing this feature in the video walkthrough, please show the unique URL for each detailed view. We will not be able to give points if we cannot see the implementation* 
+  - [x] *Note: When showing this feature in the video walkthrough, please show the unique URL for each detailed view. We will not be able to give points if we cannot see the implementation* 
 - [x] **The web app serves an appropriate 404 page when no matching route is defined**
 - [x] **The web app is styled using Picocss**
 
@@ -29,6 +29,7 @@ The following **additional** features are implemented:
 - [x] Live search bar that filters dishes by name, country, city, or category as you type
 - [x] Cards fade in on load and lift on hover
 - [x] The server returns a real `404` status for unknown routes and for dishes that don't exist (for example `/foods/pizza`)
+- [x] Custom illustrated image for each dish, served locally from `/images`
 - [x] JSON API endpoints at `/api/foods` and `/api/foods/:slug`
 
 ## Video Walkthrough
@@ -37,10 +38,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  Add GIF tool here
+GIF created with headless Google Chrome screenshots stitched together with Python (Pillow)
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
