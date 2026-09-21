@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/logo.svg" />
+    <script src="/scripts/header.js" defer></script>
+    <script src="/scripts/food.js" defer></script>
+    <title>Street Eats</title>
+  </head>
+  <body>
+    <header class="container"></header>
+
+    <main id="food-content" class="container food-info">
+      <div class="image-container">
+        <img id="image" src="" alt="" />
+      </div>
+      <article class="food-details">
+        <h2 id="name"></h2>
+        <p id="location"></p>
+        <p id="description"></p>
+        <table>
+          <tbody>
+            <tr><th scope="row">Category</th><td id="category"></td></tr>
+            <tr><th scope="row">Price</th><td id="priceRange"></td></tr>
+            <tr><th scope="row">Spice level</th><td id="spiceLevel"></td></tr>
+            <tr><th scope="row">Where to try it</th><td id="whereToTry"></td></tr>
+          </tbody>
+        </table>
+        <a href="/" role="button" class="outline">&larr; Back to all foods</a>
+      </article>
+    </main>
+  </body>
+</html>

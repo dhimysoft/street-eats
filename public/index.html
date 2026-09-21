@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/logo.svg" />
+    <script src="/scripts/header.js" defer></script>
+    <script src="/scripts/foods.js" defer></script>
+    <title>Street Eats</title>
+  </head>
+  <body>
+    <header class="container"></header>
+
+    <main class="container">
+      <section class="intro">
+        <h2>Iconic street food from around the world</h2>
+        <p>Cheap, fast, and unforgettable. Pick a dish to learn where it comes from and where to try it.</p>
+        <input type="search" id="search" placeholder="Search by dish, country, or category..." aria-label="Search foods" />
+      </section>
+
+      <div id="main-content" class="food-cards"></div>
+    </main>
+  </body>
+</html>
