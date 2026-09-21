@@ -1,18 +1,15 @@
 {
-  "name": "street-eats",
+  "name": "server",
   "version": "1.0.0",
   "description": "A listicle of iconic street foods from around the world",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "nodemon server.js"
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "express": "^4.22.3"
-  },
-  "devDependencies": {
+    "express": "^4.22.3",
     "nodemon": "^3.1.14"
   }
 }

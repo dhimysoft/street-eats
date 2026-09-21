@@ -31,9 +31,9 @@ pageRouter.get('/:slug', (req, res) => {
   const food = foods.find(food => food.slug === req.params.slug)
 
   if (food) {
-    res.status(200).sendFile(path.resolve(__dirname, '../public/food.html'))
+    res.status(200).sendFile(path.resolve(__dirname, '../../client/public/food.html'))
   }
   else {
-    res.status(404).sendFile(path.resolve(__dirname, '../public/404.html'))
+    res.status(404).sendFile(path.resolve(__dirname, '../../client/public/404.html'))
   }
 })

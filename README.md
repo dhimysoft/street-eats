@@ -51,11 +51,23 @@ GIF created with headless Google Chrome screenshots stitched together with Pytho
 
 Each dish has a `slug` field (like `tacos-al-pastor`) so detail pages get readable URLs instead of numeric IDs. The Express server checks the slug before sending the detail page, so a dish that doesn't exist gets the 404 page instead of an empty detail page.
 
-To run locally:
+The project is split like the UnEarthed lab:
+
+- `client/` is the frontend (Vite, vanilla HTML/CSS/JS, Picocss). It runs at http://localhost:3000.
+- `server/` is the Express backend. It serves the JSON API (`/api/foods`), the detail pages (`/foods/:slug`), and the 404 page on http://localhost:3001.
+
+To run locally, open two terminals:
 
 ```bash
+cd server
 npm install
 npm start
+```
+
+```bash
+cd client
+npm install
+npm run dev
 ```
 
 Then open http://localhost:3000.
