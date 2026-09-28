@@ -27,6 +27,7 @@ The following **additional** features are implemented:
 - [x] SQL queries alias the lowercased Postgres columns back to camelCase (`priceRange`, `spiceLevel`, `whereToTry`), so the frontend from Project 1 works unchanged
 - [x] All inserts and lookups are parameterized queries, so nothing is built by string concatenation
 - [x] `npm start` reseeds the database and then starts the server, so the app and the data can never drift apart
+- [x] If the database is unreachable, the app says so on the page instead of rendering blank
 
 ## Video Walkthrough
 

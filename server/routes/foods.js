@@ -27,6 +27,9 @@ pageRouter.get('/:slug', async (req, res) => {
     }
   }
   catch (error) {
-    res.status(500).send(error.message)
+    // The database is unreachable, so we can't tell whether this dish
+    // exists. Serve the detail page anyway and let it report the problem
+    // rather than dumping a raw error string at the user.
+    res.status(503).sendFile(path.resolve(__dirname, '../../client/public/food.html'))
   }
 })

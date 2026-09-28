@@ -35,13 +35,24 @@ const createCard = (food) => {
   return card
 }
 
+const showMessage = (heading, detail) => {
+  const message = document.createElement('h2')
+  message.textContent = heading
+
+  mainContent.replaceChildren(message)
+
+  if (detail) {
+    const note = document.createElement('p')
+    note.textContent = detail
+    mainContent.appendChild(note)
+  }
+}
+
 const showCards = (foods) => {
   mainContent.replaceChildren()
 
   if (foods.length === 0) {
-    const message = document.createElement('h2')
-    message.textContent = 'No Foods Found 😞'
-    mainContent.appendChild(message)
+    showMessage('No Foods Found 😞')
     return
   }
 
@@ -49,11 +60,30 @@ const showCards = (foods) => {
 }
 
 const renderFoods = async () => {
-  const response = await fetch('/api/foods')
-  const data = await response.json()
+  let data
 
-  if (!data) {
-    showCards([])
+  // The server reads these from Postgres, so anything from a dropped
+  // connection to a failed query ends up here. Say so instead of
+  // leaving the page blank.
+  try {
+    const response = await fetch('/api/foods')
+
+    if (!response.ok) {
+      throw new Error(`the server returned ${response.status}`)
+    }
+
+    data = await response.json()
+  }
+  catch (error) {
+    showMessage(
+      "Couldn't load the dishes 😞",
+      `The server couldn't reach the database (${error.message}). Make sure it is running and connected, then reload.`
+    )
+    return
+  }
+
+  if (!Array.isArray(data)) {
+    showMessage("Couldn't load the dishes 😞", 'The server sent back something unexpected.')
     return
   }
 

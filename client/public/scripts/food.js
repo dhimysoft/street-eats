@@ -1,17 +1,46 @@
+const showMessage = (foodContent, heading, detail) => {
+  const message = document.createElement('h2')
+  message.textContent = heading
+
+  foodContent.replaceChildren(message)
+
+  if (detail) {
+    const note = document.createElement('p')
+    note.textContent = detail
+    foodContent.appendChild(note)
+  }
+}
+
 const renderFood = async () => {
   const requestedSlug = window.location.pathname.split('/').pop()
-
-  const response = await fetch(`/api/foods/${requestedSlug}`)
   const foodContent = document.getElementById('food-content')
 
-  if (!response.ok) {
-    const message = document.createElement('h2')
-    message.textContent = 'No Food Found 😞'
-    foodContent.replaceChildren(message)
+  let food
+
+  try {
+    const response = await fetch(`/api/foods/${requestedSlug}`)
+
+    // A 404 means the dish isn't in the table; anything else means the
+    // server couldn't talk to the database.
+    if (response.status === 404) {
+      showMessage(foodContent, 'No Food Found 😞')
+      return
+    }
+
+    if (!response.ok) {
+      throw new Error(`the server returned ${response.status}`)
+    }
+
+    food = await response.json()
+  }
+  catch (error) {
+    showMessage(
+      foodContent,
+      "Couldn't load this dish 😞",
+      `The server couldn't reach the database (${error.message}). Make sure it is running and connected, then reload.`
+    )
     return
   }
-
-  const food = await response.json()
 
   document.getElementById('image').src = food.image
   document.getElementById('image').alt = food.name
