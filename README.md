@@ -57,33 +57,71 @@ The `foods` table:
 
 ## Project structure
 
-- `client/` — the frontend (Vite, vanilla HTML/CSS/JS, Picocss), runs at http://localhost:3000
-- `server/` — the Express backend, runs at http://localhost:3001
+**The app runs at http://localhost:3001.** That is the Express server, and it serves
+everything: the API, the detail pages, and the frontend. Port 3000 is only the Vite
+dev server, which is useful while editing frontend files but is not needed to run
+the app.
+
+- `client/` — the frontend source (vanilla HTML/CSS/JS, Picocss, bundled by Vite).
+  `npm run build` here outputs to `server/public`, which is what Express serves.
+  `npm run dev` starts the Vite dev server on http://localhost:3000 with hot reload,
+  proxying API calls to 3001.
+- `server/` — the Express backend, http://localhost:3001
   - `config/database.js` — the `pg` connection pool
   - `config/dotenv.js` — loads `server/.env`
   - `config/reset.js` — creates the `foods` table and seeds it from `data/foods.js`
   - `controllers/foods.js` — the SQL queries behind each route
   - `routes/foods.js` — `/api/foods`, `/api/foods/:slug`, and `/foods/:slug`
 
+Because the data lives in Postgres, the server has to be running — there is no way to
+open the HTML files directly and see dishes.
+
 ## Running it locally
 
-Create a PostgreSQL instance on [Render](https://render.com), then copy `server/.env.example` to `server/.env` and fill in the values from the database's **Connections** panel (use the external hostname, `{Hostname}.oregon-postgres.render.com`).
+Create a PostgreSQL instance on [Render](https://render.com), then copy
+`server/.env.example` to `server/.env` and fill in the values from the database's
+**Connections** panel. Use the **external** hostname
+(`{Hostname}.oregon-postgres.render.com`) — the short internal one only resolves
+from inside Render.
 
-```bash
-cd server
-npm install
-npm start
-```
+Build the frontend once, then start the server:
 
 ```bash
 cd client
 npm install
+npm run build
+```
+
+```bash
+cd ../server
+npm install
+npm start
+```
+
+Then open **http://localhost:3001**. One terminal, one port.
+
+`npm start` runs `npm run reset` first, which drops and recreates the `foods` table
+and reseeds it from `data/foods.js`. To reseed without starting the server, run
+`npm run reset` on its own.
+
+### While developing the frontend
+
+If you are editing files in `client/` and want hot reload, run the Vite dev server in
+a second terminal and use http://localhost:3000 instead. It proxies `/api` and
+`/foods` to the Express server, so 3001 still needs to be running.
+
+```bash
+cd client
 npm run dev
 ```
 
-Then open http://localhost:3000.
+### If the page loads but no dishes appear
 
-`npm start` runs `npm run reset` first, which drops and recreates the `foods` table and reseeds it. To reseed without starting the server, run `npm run reset` on its own.
+The server cannot reach the database. The page will say so. The most common causes are
+a missing or incorrect `server/.env`, a Render instance that has expired (free
+instances are deleted after 30 days), and networks that block outbound port 5432 —
+some campus and ISP networks do this, and a phone hotspot is the quickest way to
+confirm it.
 
 ## Notes
 
